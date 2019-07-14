@@ -55,7 +55,7 @@ import { Component, OnInit } from '@angular/core';
           <span [ngStyle]="titleStyles">I am using the titleStyles property in ngDirective</span>
       </div>
 
-      <div>
+      <div [class]="styleBoxClass">
           Input value passing to event parameter
           <input #txtInputValue type="text" value="" />
           <br />
@@ -66,6 +66,22 @@ import { Component, OnInit } from '@angular/core';
           <div><button (click)="onProcessText(txtInputValue)">Process Text</button></div>
           
       </div>
+
+      <div [class]="styleBoxClass">
+          Using NgModel - 2 way binding
+          <br />
+          User Name <input [(ngModel)]="username" type="text" value="" /> {{username}}
+          <br />
+          Password <input [(ngModel)]="password" type="text" value="" /> {{password}}
+          <br />
+          Display
+          <br />
+          <span>{{ displayOutput }}</span>
+          <br />
+          <div><button (click)="onProcessText(txtInputValue)">Process Text</button></div>
+          
+      </div>
+
 
 
       <div><button>Edit</button></div>
@@ -81,6 +97,7 @@ import { Component, OnInit } from '@angular/core';
             `.text-success {color: green;}`,
             `.text-danger {color: red}`,
             `.text-special {font-weight: bold}`,                        
+            `.box {display: block; width: 400px; height: 200px; border : 1px solid black;}`,                        
           ]
 })
 export class TodoItemComponent implements OnInit {
@@ -91,6 +108,7 @@ export class TodoItemComponent implements OnInit {
   public styleTextSuccessClass = 'text-success';
   public styleTextDangerClass = 'text-danger';
   public styleTextSpecialClass = 'text-special';
+  public styleBoxClass = 'box';
 
   public messageClasses = {
     "text-danger": this.hasError,
@@ -115,6 +133,11 @@ export class TodoItemComponent implements OnInit {
 
   public displayOutput = "";
 
+
+
+  public username = "";
+  public password = "";
+
   
 
   constructor() { }
@@ -134,6 +157,10 @@ export class TodoItemComponent implements OnInit {
   onProcessText(txt){
 
     this.displayOutput =  "The value of the text is " + txt.value;
+
+  }
+
+  onLogin(){
 
   }
 
