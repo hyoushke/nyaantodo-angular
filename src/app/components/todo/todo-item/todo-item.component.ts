@@ -55,6 +55,18 @@ import { Component, OnInit } from '@angular/core';
           <span [ngStyle]="titleStyles">I am using the titleStyles property in ngDirective</span>
       </div>
 
+      <div>
+          Input value passing to event parameter
+          <input #txtInputValue type="text" value="" />
+          <br />
+          Display
+          <br />
+          <span>{{ displayOutput }}</span>
+          <br />
+          <div><button (click)="onProcessText(txtInputValue)">Process Text</button></div>
+          
+      </div>
+
 
       <div><button>Edit</button></div>
       <div><button>Remove</button></div>
@@ -101,6 +113,8 @@ export class TodoItemComponent implements OnInit {
 
   public greeting = "";
 
+  public displayOutput = "";
+
   
 
   constructor() { }
@@ -114,6 +128,12 @@ export class TodoItemComponent implements OnInit {
 
       alert(this.greeting);
       alert(event.type);
+
+  }
+
+  onProcessText(txt){
+
+    this.displayOutput =  "The value of the text is " + txt.value;
 
   }
 
