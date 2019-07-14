@@ -60,6 +60,9 @@ import { Component, OnInit } from '@angular/core';
       <div><button>Remove</button></div>
       <div><button>Set Enable</button></div>
       <div><button>Set Color</button></div>
+      <div><button (click)="greetOnClick($event)" >Greet</button> Current Greeting Message is <span [style.color]="'green'">{{ greeting }}</span></div>
+      <div><button (click)="counter = counter + 1">Click based on Expressoin</button>counter value is {{counter}}</div>
+      <div><button (click)="counter = counter - 1">Decrement based on Expressoin</button>counter value is {{counter}}</div>
     </div>
   `,
   styles: [
@@ -84,19 +87,34 @@ export class TodoItemComponent implements OnInit {
 
   }
 
+  public counter = 0;
+
   public titleStyles = {
     color: "blue",
     fontStyle: "italic"
 
   }
 
+
+
   public highlightColor = "pink";
+
+  public greeting = "";
 
   
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  greetOnClick(event){
+
+      this.greeting = "Welcome to the Factory";
+
+      alert(this.greeting);
+      alert(event.type);
+
   }
 
 }
