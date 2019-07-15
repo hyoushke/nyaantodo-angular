@@ -7,8 +7,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 })
 export class TodoItemComponent implements OnInit {
-  
-  constructor() { }
+
+  @Input() todoitem;
+
+  constructor() { 
+    console.log(this.todoitem);
+  }
 
   ngOnInit() {
   }

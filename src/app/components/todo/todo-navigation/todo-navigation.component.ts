@@ -4,7 +4,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   selector: 'app-todo-navigation',
   template: `
   <p>
-      {{message}}
       <button>Delete</button>
       <button (click)="onClickCreate()">Create</button>
       <button>Search</button>
