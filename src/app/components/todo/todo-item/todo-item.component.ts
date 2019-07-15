@@ -38,6 +38,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
       </div>
 
       <div>
+          Using Pipes
+          <br />
+          <span>{{ dataString | uppercase }}</span>
+          <br />
+          <span>{{ dataString | lowercase }}</span>
+          <br />
+          <span>{{ dataString | titlecase }}</span>
+          <br />
+          <span>{{ dataString | slice:3:5 }}</span>
+          <br />
+          <span>{{ dataString | json }}</span>
+          <br />
+
+      </div>
+
+      <div>
           Using Style Binding using Condition
           <br />
           <span [style.color]="hasError ? 'red' : 'green' ">I am red because i have error again</span>
@@ -201,6 +217,8 @@ export class TodoItemComponent implements OnInit {
     "text-special" : this.isSpecial
 
   }
+
+  dataString : string = "Hello World";
 
   public counter = 0;
 
