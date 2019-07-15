@@ -9,8 +9,6 @@ export class TodoListComponent implements OnInit {
 
   constructor() { }
 
-  public message = "";
-
   ngOnInit() {
   }
 

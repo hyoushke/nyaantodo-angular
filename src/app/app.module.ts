@@ -8,6 +8,8 @@ import { TodoListComponent } from './components/todo/todo-list/todo-list.compone
 import { TodoItemComponent } from './components/todo/todo-item/todo-item.component';
 import { TodoNavigationComponent } from './components/todo/todo-navigation/todo-navigation.component';
 import { TodoContainerComponent } from './components/todo/todo-container/todo-container.component';
+import { ExperimentitemComponent } from './components/experiments/experimentitem/experimentitem.component';
+import { ExperimentlistComponent } from './components/experiments/experimentlist/experimentlist.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TodoContainerComponent } from './components/todo/todo-container/todo-co
     TodoListComponent,
     TodoItemComponent,
     TodoNavigationComponent,
-    TodoContainerComponent
+    TodoContainerComponent,
+    ExperimentitemComponent,
+    ExperimentlistComponent
   ],
   imports: [
     BrowserModule,
