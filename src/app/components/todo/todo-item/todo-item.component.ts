@@ -68,6 +68,13 @@ import { Component, OnInit } from '@angular/core';
       </div>
 
       <div [class]="styleBoxClass">
+          Using ngFor Directive
+          <ul *ngFor="let color of colors; last as l; first as f; index as i; odd as o; even as e;">
+                <li>{{i}} {{color}} {{f}} {{l}} {{o}} {{e}}</li>
+          </ul>
+      </div>
+
+      <div [class]="styleBoxClass">
           Using ngSwitch Directive
           <div><button (click)="clientType='EMPLOYEE'">Set Value to EMPLOYEE</button></div>
           <br />
@@ -178,6 +185,8 @@ export class TodoItemComponent implements OnInit {
 
   public hasError = true;
   public isSpecial = true;
+
+  public colors = ['red', 'gold', 'green', 'blue', 'white', 'yellow', 'black', 'pink'];
 
   public styleTextSuccessClass = 'text-success';
   public styleTextDangerClass = 'text-danger';
