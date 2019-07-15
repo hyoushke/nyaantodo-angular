@@ -1,13 +1,11 @@
-<p>
-  <app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item><app-todo-item></app-todo-item><app-todo-item></app-todo-item>
-  <app-todo-item></app-todo-item><app-todo-item></app-todo-item><app-todo-item></app-todo-item><app-todo-item></app-todo-item>
-  
 
-</p>
+  
+  <h2>{{message}}</h2>
+
+  <app-todo-item (todoItemEvent)="message=$event" ></app-todo-item>
+  <app-todo-item></app-todo-item>
+  <app-todo-item></app-todo-item>
+  <app-todo-item></app-todo-item>
+  <app-todo-item></app-todo-item>
+  <app-todo-item></app-todo-item>
+

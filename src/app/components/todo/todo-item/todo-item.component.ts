@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-todo-item',
@@ -172,6 +172,8 @@ import { Component, OnInit } from '@angular/core';
       <div><button (click)="greetOnClick($event)" >Greet</button> Current Greeting Message is <span [style.color]="'green'">{{ greeting }}</span></div>
       <div><button (click)="counter = counter + 1">Click based on Expressoin</button>counter value is {{counter}}</div>
       <div><button (click)="counter = counter - 1">Decrement based on Expressoin</button>counter value is {{counter}}</div>
+
+      <div><button (click)="onClickTodoItem()">Event Emitter</button></div>
     </div>
   `,
   styles: [
@@ -230,6 +232,8 @@ export class TodoItemComponent implements OnInit {
 
   constructor() { }
 
+  @Output() todoItemEvent = new EventEmitter<string>();
+
   ngOnInit() {
   }
 
@@ -245,6 +249,13 @@ export class TodoItemComponent implements OnInit {
   onProcessText(txt){
 
     this.displayOutput =  "The value of the text is " + txt.value;
+
+  }
+
+  onClickTodoItem(){
+
+    this.todoItemEvent.emit('Hi Im from Todo Item Component');
+    alert('has emitted');
 
   }
 
