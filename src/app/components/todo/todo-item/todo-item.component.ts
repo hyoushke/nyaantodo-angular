@@ -83,6 +83,66 @@ import { Component, OnInit } from '@angular/core';
       </div>
 
 
+      <div [class]="styleBoxClass">
+          Structural Directives
+          <div *ngIf="true">
+              I am inside ngIf directive
+          </div>
+
+
+          <br />
+
+          <strong>ngIf with Else Block</strong>
+          <br />
+          <div *ngIf="showBox else elseBlock">
+              I am inside ngIf True directive
+          </div>
+
+          <ng-template #elseBlock>
+            I am the Else statement
+            becahse showBox is {{showBox}}
+          </ng-template>
+
+          
+      </div>
+
+
+
+      <div [class]="styleBoxClass">
+      Structural Directives
+      <div *ngIf="true">
+          I am inside ngIf directive
+      </div>
+
+
+      <br />
+
+      <strong>ngIf with thenBlock and elseBlock</strong>
+      <br />
+
+
+      <div *ngIf="showBox then thenBlock; else elseBlock">
+      </div>
+
+      <ng-template #thenBlock>
+         I am inside the thenBlock
+      </ng-template>
+
+
+      <ng-template #elseBlock>
+        I am inside the elseBlock
+      </ng-template>
+
+      
+  </div>
+
+
+
+
+
+
+
+
 
       <div><button>Edit</button></div>
       <div><button>Remove</button></div>
@@ -137,6 +197,8 @@ export class TodoItemComponent implements OnInit {
 
   public username = "";
   public password = "";
+
+  public showBox = true;
 
   
 
