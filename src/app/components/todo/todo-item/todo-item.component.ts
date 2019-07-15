@@ -68,6 +68,20 @@ import { Component, OnInit } from '@angular/core';
       </div>
 
       <div [class]="styleBoxClass">
+          Using ngSwitch Directive
+          <div><button (click)="clientType='EMPLOYEE'">Set Value to EMPLOYEE</button></div>
+          <br />
+          <div [ngSwitch]="clientType">
+            <div *ngSwitchCase="'EMPLOYER'">I am Employer</div>
+            <div *ngSwitchCase="'EMPLOYEE'">I am Employee</div>
+            <div *ngSwitchCase="'AGENT'">I am Agent</div>
+            <div *ngSwitchDefault>Yeahbah</div>
+          </div>
+
+          <br />
+      </div>
+
+      <div [class]="styleBoxClass">
           Using NgModel - 2 way binding
           <br />
           User Name <input [(ngModel)]="username" type="text" value="" /> {{username}}
@@ -199,6 +213,9 @@ export class TodoItemComponent implements OnInit {
   public password = "";
 
   public showBox = true;
+
+  public clientType =  "EMPLOYER";
+  
 
   
 
