@@ -30,6 +30,20 @@ export class TodoFormComponent implements OnInit {
 
     alert('hello world');
 
+    console.log( this.author );
+    console.log( this.title );
+    console.log( this.content );
+    console.log( this.categories );
+    console.log( this.tags );
+    console.log( this.likes );
+    console.log( this.subscribers );
+    console.log( this.shares );
+    console.log( this.views );
+    console.log( this.imageurl );
+    console.log( this.datecreated );
+    console.log( this.datemodified );
+  
+
 
 
   }
