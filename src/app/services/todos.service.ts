@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { ITodo } from 'src/app/interface/ITodo';
+import { IPost } from 'src/app/interface/IPost';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
+import { map, catchError } from 'rxjs/operators';
+import  'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 @Injectable({
@@ -11,7 +13,8 @@ import 'rxjs/add/observable/throw';
 export class TodosService {
 
 
-  private _url:string = "/assets/data/todos.json";
+  //private _url:string = "/assets/data/todos.json";
+  private _url:string = "http://localhost:8080/posts/5/1/1/test";
 
   constructor(private http:HttpClient ) { }
 
@@ -21,9 +24,15 @@ export class TodosService {
 
   }
 
-  getTodos():Observable<ITodo[]>{
+  getTodos():Observable<IPost[]>{
 
-    return this.http.get<ITodo[]>(this._url).catch(this.errorHandler);
+    return this.http.get<any>(this._url).pipe( map( res => { 
+                                                        const items = res.details.docs;
+      
+                                                        return items; } )  ).catch(this.errorHandler);
+
+
+
 
     /*
     return [

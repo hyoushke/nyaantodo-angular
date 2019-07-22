@@ -11,6 +11,14 @@ import { TodoNavigationComponent } from './components/todo/todo-navigation/todo-
 import { TodoContainerComponent } from './components/todo/todo-container/todo-container.component';
 import { ExperimentitemComponent } from './components/experiments/experimentitem/experimentitem.component';
 import { ExperimentlistComponent } from './components/experiments/experimentlist/experimentlist.component';
+import { MeterboxLikesComponent } from './components/meterbox/meterbox-likes/meterbox-likes.component';
+import { MeterboxSharesComponent } from './components/meterbox/meterbox-shares/meterbox-shares.component';
+import { MeterboxDownloadsComponent } from './components/meterbox/meterbox-downloads/meterbox-downloads.component';
+import { MeterboxFollowersComponent } from './components/meterbox/meterbox-followers/meterbox-followers.component';
+import { MeterboxViewsComponent } from './components/meterbox/meterbox-views/meterbox-views.component';
+import { MeterboxCommentsComponent } from './components/meterbox/meterbox-comments/meterbox-comments.component';
+import { MeterboxComponent } from './components/meterbox/meterbox/meterbox.component';
+import { TodoFormComponent } from './components/todo/todo-form/todo-form.component';
 
 
 @NgModule({
@@ -21,7 +29,15 @@ import { ExperimentlistComponent } from './components/experiments/experimentlist
     TodoNavigationComponent,
     TodoContainerComponent,
     ExperimentitemComponent,
-    ExperimentlistComponent
+    ExperimentlistComponent,
+    MeterboxLikesComponent,
+    MeterboxSharesComponent,
+    MeterboxDownloadsComponent,
+    MeterboxFollowersComponent,
+    MeterboxViewsComponent,
+    MeterboxCommentsComponent,
+    MeterboxComponent,
+    TodoFormComponent
   ],
   imports: [
     BrowserModule,
