@@ -1,6 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-todo-container></app-todo-container>
+
 
 <!-- app-experimentlist></app-experimentlist -->
-<router-outlet></router-outlet>
 
+
+
+<app-header>
+    <app-navigation></app-navigation>
+</app-header>
+
+<app-notification></app-notification>
+
+<!--
+<app-content>
+-->
+<div>
+    <app-content-nav></app-content-nav>
+    <app-content-container>
+        <router-outlet></router-outlet>
+    </app-content-container>
+</div>
+<!--
+</app-content>
+-->
+
+<app-footer></app-footer>

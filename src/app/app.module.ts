@@ -20,6 +20,13 @@ import { MeterboxCommentsComponent } from './components/meterbox/meterbox-commen
 import { MeterboxComponent } from './components/meterbox/meterbox/meterbox.component';
 import { TodoFormComponent } from './components/todo/todo-form/todo-form.component';
 import { TodosService } from './services/todos.service';
+import { FooterComponent } from './components/layouts/footer/footer.component';
+import { ContentNavComponent } from './components/layouts/content-nav/content-nav.component';
+import { ContentContainerComponent } from './components/layouts/content-container/content-container.component';
+import { ContentComponent } from './components/layouts/content/content.component';
+import { HeaderComponent } from './components/layouts/header/header.component';
+import { NavigationComponent } from './components/layouts/navigation/navigation.component';
+import { NotificationComponent } from './components/layouts/notification/notification.component';
 
 
 @NgModule({
@@ -38,7 +45,14 @@ import { TodosService } from './services/todos.service';
     MeterboxViewsComponent,
     MeterboxCommentsComponent,
     MeterboxComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    FooterComponent,
+    ContentNavComponent,
+    ContentContainerComponent,
+    ContentComponent,
+    HeaderComponent,
+    NavigationComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
