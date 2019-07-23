@@ -27,6 +27,7 @@ import { ContentComponent } from './components/layouts/content/content.component
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { NavigationComponent } from './components/layouts/navigation/navigation.component';
 import { NotificationComponent } from './components/layouts/notification/notification.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { NotificationComponent } from './components/layouts/notification/notific
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [TodosService],
   bootstrap: [AppComponent]
