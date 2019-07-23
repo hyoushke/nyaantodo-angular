@@ -19,6 +19,7 @@ import { MeterboxViewsComponent } from './components/meterbox/meterbox-views/met
 import { MeterboxCommentsComponent } from './components/meterbox/meterbox-comments/meterbox-comments.component';
 import { MeterboxComponent } from './components/meterbox/meterbox/meterbox.component';
 import { TodoFormComponent } from './components/todo/todo-form/todo-form.component';
+import { TodosService } from './services/todos.service';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { TodoFormComponent } from './components/todo/todo-form/todo-form.compone
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

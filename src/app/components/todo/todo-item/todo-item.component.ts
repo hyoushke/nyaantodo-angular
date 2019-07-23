@@ -11,7 +11,7 @@ export class TodoItemComponent implements OnInit {
   @Input() todoitem;
 
   constructor() { 
-    console.log(this.todoitem);
+
   }
 
   ngOnInit() {

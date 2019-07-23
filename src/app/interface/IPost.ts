@@ -1,6 +1,7 @@
 export interface IPost {
-    _id: string,
-    author_id: string,
+    id: string,
+    status:string,
+    authorid: string,
     author: string,
     title: string,
     content: string,
