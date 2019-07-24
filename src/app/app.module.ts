@@ -28,7 +28,9 @@ import { HeaderComponent } from './components/layouts/header/header.component';
 import { NavigationComponent } from './components/layouts/navigation/navigation.component';
 import { NotificationComponent } from './components/layouts/notification/notification.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostComponent } from './components/post/post/post.component';
 
+import {routing} from './app-routing';
 
 @NgModule({
   declarations: [
@@ -53,14 +55,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContentComponent,
     HeaderComponent,
     NavigationComponent,
-    NotificationComponent
+    NotificationComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    routing
   ],
   providers: [TodosService],
   bootstrap: [AppComponent]
