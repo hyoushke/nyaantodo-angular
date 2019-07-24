@@ -7,10 +7,10 @@
 
 
     <div class="form-group">
-        <label>Author</label><input class="form-control" [(ngModel)]="author" type="text" value="" />
+        <label>Author</label><input class="form-control" [(ngModel)]="author" type="text" value="" />{{author | date: 'MM/dd/yyyy'}}
     </div>  
     <div class="form-group">
-        <label>title</label><input class="form-control" [(ngModel)]="title" type="text" value="" />
+        <label>title</label><input class="form-control" [(ngModel)]="title" type="text" value="{{ title | uppercase }}" />
     </div>  
     <div class="form-group">
         <label>Content</label><input class="form-control" [(ngModel)]="content" type="text" value="" />

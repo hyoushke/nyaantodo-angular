@@ -31,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostComponent } from './components/post/post/post.component';
 
 import {routing} from './app-routing';
+import { LoginComponent } from './components/login/login/login.component';
+import { RegisterComponent } from './components/register/register/register.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import {routing} from './app-routing';
     HeaderComponent,
     NavigationComponent,
     NotificationComponent,
-    PostComponent
+    PostComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
