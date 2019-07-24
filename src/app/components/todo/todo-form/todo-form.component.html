@@ -1,21 +1,50 @@
 <div>
-<h1>Create New Post</h1>
-<br />
-<br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Create New Post</li>
+        </ol>
+    </nav>
 
-<label>autho</label><input [(ngModel)]="author" type="text" value="" />  <br />
-<label>titl</label><input [(ngModel)]="title" type="text" value="" />  <br />
-<label>conten</label><input [(ngModel)]="content" type="text" value="" />  <br />
-<label>category</label><input [(ngModel)]="categories" type="text" value="" />  <br />
-<label>tag</label><input [(ngModel)]="tags" type="text" value="" />  <br />
-<label>like</label><input [(ngModel)]="likes" type="text" value="" />  <br />
-<label>subscriber</label><input [(ngModel)]="subscribers" type="text" value="" />  <br />
-<label>share</label><input [(ngModel)]="shares" type="text" value="" />  <br />
-<label>view</label><input [(ngModel)]="views" type="text" value="" />  <br />
-<label>imageur</label><input [(ngModel)]="imageurl" type="text" value="" />  <br />
-<label>datecreate</label><input [(ngModel)]="datecreated" type="text" value="" />  <br />
-<label>datemodifie</label><input [(ngModel)]="datemodified" type="text" value="" />  <br />
 
-<button (click)="onClickCreatePost()">Add new Post</button>
+    <div class="form-group">
+        <label>Author</label><input class="form-control" [(ngModel)]="author" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>title</label><input class="form-control" [(ngModel)]="title" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Content</label><input class="form-control" [(ngModel)]="content" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Category</label><input class="form-control" [(ngModel)]="categories" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Tag</label><input class="form-control" [(ngModel)]="tags" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Like</label><input class="form-control" [(ngModel)]="likes" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Subscribe</label><input class="form-control" [(ngModel)]="subscribers" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Share</label><input class="form-control" [(ngModel)]="shares" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>View</label><input class="form-control" [(ngModel)]="views" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Imageur</label><input class="form-control" [(ngModel)]="imageurl" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Datecreate</label><input class="form-control" [(ngModel)]="datecreated" type="text" value="" />
+    </div>  
+    <div class="form-group">
+        <label>Datemodifie</label><input class="form-control" [(ngModel)]="datemodified" type="text" value="" />
+    </div>  
+
+    <button class="btn btn-primary btn-sm" (click)="onClickCreatePost()">Add new Post</button>
+
+
 
 </div>
