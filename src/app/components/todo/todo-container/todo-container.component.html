@@ -1,5 +1,15 @@
-<p>
+
   <app-todo-navigation></app-todo-navigation>
-  <app-todo-list [todos]="todos"></app-todo-list>
-  <app-todo-form></app-todo-form>
-</p>
+  
+  <div class="alert alert-success" role="alert">
+      A simple success alert—check it out!
+  </div>
+
+  <div class="row">
+      <div class="col">
+          <app-todo-list [todos]="todos"></app-todo-list>
+      </div>
+      <div class="col">
+          <app-todo-form></app-todo-form>
+      </div>
+    </div>
