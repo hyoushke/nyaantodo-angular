@@ -1,15 +1,41 @@
-
-  <app-todo-navigation></app-todo-navigation>
-  
   <div class="alert alert-success" role="alert">
-      bbbbbbbbbbbbbbb
+      Message : {{ message }}
+      <br />
+      <br />
+      Navigation: {{ navigation }}
+      <br />
+      <br />
+      Counter: {{ counter }}
   </div>
 
   <div class="row">
-      <div class="col">
-          <app-todo-list [todos]="todos"></app-todo-list>
+      <div class="col-3">
+          <app-todo-navigation (navigationEvent)="recieveNavigationEvent($event)"  ></app-todo-navigation>
       </div>
       <div class="col">
-          <app-todo-form></app-todo-form>
+
+          <div *ngIf="navigation=='TDO_LIST'" class="row">
+            <div class="col">
+              <app-todo-list [todos]="todos"></app-todo-list>
+            </div>
+          </div>
+
+          <div *ngIf="navigation=='TDO_FORM'" class="row">
+              <div class="col" >
+                <app-todo-form (todoFormEvent)="recieveTodoFormEvent($event)"></app-todo-form>
+              </div>
+          </div>
+
+          <div *ngIf="navigation=='TDO_REPORTS'" class="row">
+          </div>
+
+          <div *ngIf="navigation=='TDO_SUMMARY'" class="row">
+          </div>
+
+          <div *ngIf="navigation=='TDO_TABLE'" class="row">
+          </div>
+
+
+
       </div>
-    </div>
+  </div>

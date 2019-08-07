@@ -9,15 +9,25 @@ export class TodoNavigationComponent implements OnInit {
 
 
   public message = "";
+  public counter:number = 0;
+
+  @Output() navigationEvent = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onClickCreate(){
+  onClickCreate(todoNavigation:string){
 
-    alert('Create Button was Clicked');
+    let data = {message: "broadcast from navigation child",
+                counter: this.counter,
+                navigation: todoNavigation };
+    this.counter++;
+    this.navigationEvent.emit(data);
+
+    //alert('Create Button was Clicked');
+    //alert('broadcast: hide todolis, hide todoreports, hide todosummary, show todoform');
 
   }
 

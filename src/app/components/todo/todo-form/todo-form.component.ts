@@ -1,4 +1,5 @@
-import { Component, OnInit, ɵSWITCH_COMPILE_INJECTABLE__POST_R3__ } from '@angular/core';
+//import { Component, OnInit, ɵSWITCH_COMPILE_INJECTABLE__POST_R3__ } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodosService } from 'src/app/services/todos.service';
 import { IPost } from 'src/app/interface/IPost';
 
@@ -25,6 +26,8 @@ export class TodoFormComponent implements OnInit {
 
   public post:IPost;
 
+  @Output() todoFormEvent = new EventEmitter<any>();
+
   constructor(private _todoService: TodosService) { }
 
   ngOnInit() {
@@ -49,7 +52,7 @@ export class TodoFormComponent implements OnInit {
 
 
               //console.log(this.post);
-            
+
               console.log( this.author );
               console.log( this.title );
               console.log( this.content );
@@ -80,23 +83,35 @@ export class TodoFormComponent implements OnInit {
                           datecreated: this.datecreated,
                           datemodified: this.datemodified
               }
-              
+
 
               this._todoService.createPost(post).subscribe( res => {
-                
-                console.log(res) 
+
+                console.log(res)
                 this._todoService.getTodos().subscribe(res => { console.log('******************'); console.log(res); console.log('******************'); });
-              
-              
+
+
+
+
+
               });
-              
+
 
   }
 
 
   onClickCreatePost(){
 
-    this.addPost();
+
+    let data = {
+      message: "broadcast from todo form child [successfully created new todo]",
+      counter: 44,
+      navigation: 'TDO_FORM'
+    };
+
+this.todoFormEvent.emit(data);
+this.addPost();
+
   }
 
 }
