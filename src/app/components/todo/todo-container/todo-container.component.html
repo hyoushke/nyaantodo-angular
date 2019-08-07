@@ -14,6 +14,12 @@
       </div>
       <div class="col">
 
+          <div *ngIf="isLoading==true" class="row">
+              <div class="col" >
+                NOW LOADING....
+              </div>
+          </div>
+
           <div *ngIf="navigation=='TDO_LIST'" class="row">
             <div class="col">
               <app-todo-list [todos]="todos"></app-todo-list>

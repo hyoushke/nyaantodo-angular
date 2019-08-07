@@ -20,6 +20,7 @@ export class TodoContainerComponent implements OnInit {
   public message:string;
   public navigation:string;
   public toaster:string;
+  public isLoading:boolean = false;
 
   public todoContainerMessage:string;
 
@@ -46,12 +47,25 @@ export class TodoContainerComponent implements OnInit {
   }
 
 
+
+
   recieveNavigationEvent($event): void{
+
+    this.isLoading = true;
+    this.navigation = 'TDO_LOADING';
+
+    setTimeout( ()=>{
+
       this.child = 'Todo Navigation';
       this.navigation = $event.navigation;
       this.counter = $event.counter;
       this.message = $event.message;
       this.toaster = 'Toasted Notification';
+      this.isLoading = false;
+
+
+    }, 2000);
+
   }
 
   recieveTodoFormEvent($event): void{
