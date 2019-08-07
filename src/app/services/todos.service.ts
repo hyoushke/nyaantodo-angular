@@ -22,7 +22,7 @@ export class TodosService {
 
 
   //private _url:string = "/assets/data/todos.json";
-  private _url:string = "http://localhost:8080/posts/5/1/1/test";
+  private _url:string = "http://localhost:8080/posts/500/1/1/test";
   //private _url:string = "http://ec2-18-216-74-216.us-east-2.compute.amazonaws.com:8080/posts/500/1/1/test";
 
   private headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
