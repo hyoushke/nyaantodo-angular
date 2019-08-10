@@ -45,8 +45,7 @@ export class TodoReactiveformComponent implements OnInit {
     console.log(this.formPosts);
   }
 
-  addPost(){
-    alert('hello world');
+  addPost() {
 
     /*
     let post = {
@@ -67,19 +66,19 @@ export class TodoReactiveformComponent implements OnInit {
                 datemodified: this.datemodified
     }
     */
-   let post = null;
+   let post = this.formPosts.value;
+       post.id = '1';
+       post.authorid = '1';
+       post.status = 'Active';
 
 
     this._todoService.createPost(post).subscribe( res => {
 
       console.log(res)
       this._todoService.getTodos().subscribe(res => { console.log('******************'); console.log(res); console.log('******************'); });
-
-
-
-
-
     });
+
+
 
 
 }
@@ -92,49 +91,68 @@ onClickCreatePost(){
                   navigation: 'TDO_REACTIVEFORM'
                };
 
-              //this.todoReactiveFormEvent.emit(data);
-              //this.addPost();
+              this.addPost();
+              this.todoReactiveFormEvent.emit(data);
   }
 
+  //ngSubmit
+  sendFormPosts(){
+     console.log(this.formPosts.value);
+     this.onClickCreatePost();
+
+
+  }
 
 
   //validation getters in UI
-  get author(){
-    return this.formPosts.get('author');
+  get author() {
+    return this.formPosts.get('author') as FormControl;
   }
-  get title(){
-    return this.formPosts.get('title');
+
+  get title() {
+    return this.formPosts.get('title') as FormControl;
   }
-  get content(){
-    return this.formPosts.get('content');
+
+  get content() {
+    return this.formPosts.get('content') as FormControl;
   }
-  get categories(){
-    return this.formPosts.get('categories');
+
+  get categories() {
+    return this.formPosts.get('categories') as FormControl;
   }
-  get tags(){
-    return this.formPosts.get('tags');
+
+  get tags() {
+    return this.formPosts.get('tags') as FormControl;
   }
-  get likes(){
-    return this.formPosts.get('likes');
+
+  get likes() {
+    return this.formPosts.get('likes') as FormControl;
   }
-  get subscribers(){
-    return this.formPosts.get('subscribers');
+
+  get subscribers() {
+    return this.formPosts.get('subscribers') as FormControl;
   }
-  get shares(){
-    return this.formPosts.get('shares');
+
+  get shares() {
+    return this.formPosts.get('shares') as FormControl;
   }
-  get views(){
-    return this.formPosts.get('views');
+
+  get views() {
+    return this.formPosts.get('views') as FormControl;
   }
-  get imageurl(){
-    return this.formPosts.get('imageurl');
+
+  get imageurl() {
+    return this.formPosts.get('imageurl') as FormControl;
   }
-  get datecreated(){
-    return this.formPosts.get('datecreated');
+
+  get datecreated() {
+    return this.formPosts.get('datecreated') as FormControl;
   }
-  get datemodified(){
-    return this.formPosts.get('datemodified');
+
+  get datemodified() {
+    return this.formPosts.get('datemodified') as FormControl;
   }
+
 
 
 
