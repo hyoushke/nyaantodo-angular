@@ -18,7 +18,7 @@ export class TodoNavigationComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickCreate(todoNavigation:string){
+  onClickNavigateItem(todoNavigation:string){
 
     let data = {message: "broadcast from navigation child",
                 counter: this.counter,
