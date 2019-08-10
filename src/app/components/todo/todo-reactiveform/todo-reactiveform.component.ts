@@ -66,7 +66,7 @@ export class TodoReactiveformComponent implements OnInit {
                 datemodified: this.datemodified
     }
     */
-   let post = this.formPosts.value;
+   let post:IPost = this.formPosts.value as IPost;
        post.id = '1';
        post.authorid = '1';
        post.status = 'Active';
