@@ -17,9 +17,12 @@ export class TodoReactiveformComponent implements OnInit {
 
   @Output() todoReactiveFormEvent = new EventEmitter<any>();
 
-  constructor(private _todoService: TodosService, formBuilder: FormBuilder) {
+  constructor(private _todoService: TodosService, private formBuilder: FormBuilder) {
 
-    this.formPosts = formBuilder.group({
+  }
+
+  ngOnInit() {
+    this.formPosts = this.formBuilder.group({
       author: null,
       title: null,
       content: null,
@@ -36,10 +39,6 @@ export class TodoReactiveformComponent implements OnInit {
 
     this.logFormPostValue();
 
-
-  }
-
-  ngOnInit() {
   }
 
   logFormPostValue(){
@@ -49,6 +48,7 @@ export class TodoReactiveformComponent implements OnInit {
   addPost(){
     alert('hello world');
 
+    /*
     let post = {
                 id: '1',
                 status: 'Active',
@@ -66,6 +66,8 @@ export class TodoReactiveformComponent implements OnInit {
                 datecreated: this.datecreated,
                 datemodified: this.datemodified
     }
+    */
+   let post = null;
 
 
     this._todoService.createPost(post).subscribe( res => {

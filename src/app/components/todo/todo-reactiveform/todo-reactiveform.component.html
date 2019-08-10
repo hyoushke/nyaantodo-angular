@@ -5,45 +5,74 @@
       </ol>
   </nav>
 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {{formPosts.value | json}}
+    </ol>
+  </nav>
 
+<form [formGroup]="formPosts">
   <div class="form-group">
-      <label>Author</label><input class="form-control" [(ngModel)]="author" type="text" value="" />{{author | date: 'MM/dd/yyyy'}}
+      <label>Author</label>
+      <input class="form-control" formControlName="author" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>title</label><input class="form-control" [(ngModel)]="title" type="text" value="{{ title | uppercase }}" />
+      <label>title</label>
+      <input class="form-control" formControlName="title" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Content</label><input class="form-control" [(ngModel)]="content" type="text" value="" />
+      <label>Content</label>
+      <input class="form-control" formControlName="content" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Category</label><input class="form-control" [(ngModel)]="categories" type="text" value="" />
+      <label>Category</label>
+      <input class="form-control" formControlName="categories" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Tag</label><input class="form-control" [(ngModel)]="tags" type="text" value="" />
+      <label>Tag</label>
+      <input class="form-control" formControlName="tags" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Like</label><input class="form-control" [(ngModel)]="likes" type="text" value="" />
+      <label>Like</label>
+      <input class="form-control" formControlName="likes" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Subscribe</label><input class="form-control" [(ngModel)]="subscribers" type="text" value="" />
+      <label>Subscribe</label>
+      <input class="form-control" formControlName="subscribers" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Share</label><input class="form-control" [(ngModel)]="shares" type="text" value="" />
+      <label>Share</label>
+      <input class="form-control" formControlName="shares" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>View</label><input class="form-control" [(ngModel)]="views" type="text" value="" />
+      <label>View</label>
+      <input class="form-control" formControlName="views" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Imageur</label><input class="form-control" [(ngModel)]="imageurl" type="text" value="" />
+      <label>Imageur</label>
+      <input class="form-control" formControlName="imageurl" type="text" value="" />
+      <small class="small-text"></small>
   </div>
   <div class="form-group">
-      <label>Datecreate</label><input class="form-control" [(ngModel)]="datecreated" type="text" value="" />
+      <label>Datecreate</label><input class="form-control" formControlName="datecreated" type="text" value="" />
   </div>
   <div class="form-group">
-      <label>Datemodifie</label><input class="form-control" [(ngModel)]="datemodified" type="text" value="" />
+      <label>Datemodifie</label><input class="form-control" formControlName="datemodified" type="text" value="" />
   </div>
 
-  <button class="btn btn-primary btn-sm" (click)="onClickCreatePost()">Add new Post</button>
+  <button type="submit" class="btn btn-primary btn-sm" (click)="onClickCreatePost()">Add new Post</button>
+  <button type="reset" class="btn btn-primary btn-sm" (click)="onClickCreatePost()">Clear</button>
+
+</form>
 
 
 
