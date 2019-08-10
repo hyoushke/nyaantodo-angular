@@ -1,1 +1,81 @@
-<p>todo-reactiveformv2 works!</p>
+<div>
+  <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Create New Post</li>
+      </ol>
+  </nav>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {{formPosts.value | json}}
+    </ol>
+  </nav>
+
+<form [formGroup]="formPosts" (ngSubmit)="sendFormPosts()">
+  <div class="form-group">
+      <label>Author</label>
+      <input class="form-control" formControlName="author" type="text" value="" />
+      <small *ngIf="author.invalid && author.touched" class="form-text text-danger">
+          Author is required
+      </small>
+  </div>
+  <div class="form-group">
+      <label>title</label>
+      <input class="form-control" formControlName="title" type="text" value="" />
+      <small *ngIf="title.invalid && title.touched" class="form-text text-danger">title is required</small>
+  </div>
+  <div class="form-group">
+      <label>Content</label>
+      <input class="form-control" formControlName="content" type="text" value="" />
+      <small *ngIf="content.invalid && content.touched" class="form-text text-danger">content is required</small>
+  </div>
+  <div class="form-group">
+      <label>Category</label>
+      <input class="form-control" formControlName="categories" type="text" value="" />
+      <small *ngIf="categories.invalid && categories.touched" class="form-text text-danger">categories is required</small>
+  </div>
+  <div class="form-group">
+      <label>Tag</label>
+      <input class="form-control" formControlName="tags" type="text" value="" />
+      <small *ngIf="tags.invalid && tags.touched" class="form-text text-danger">tags is required</small>
+  </div>
+  <div class="form-group">
+      <label>Like</label>
+      <input class="form-control" formControlName="likes" type="text" value="" />
+      <small *ngIf="likes.invalid && likes.touched" class="form-text text-danger">likes is required</small>
+  </div>
+  <div class="form-group">
+      <label>Subscribe</label>
+      <input class="form-control" formControlName="subscribers" type="text" value="" />
+      <small *ngIf="subscribers.invalid && subscribers.touched" class="form-text text-danger">subscribers is required</small>
+  </div>
+  <div class="form-group">
+      <label>Share</label>
+      <input class="form-control" formControlName="shares" type="text" value="" />
+      <small *ngIf="shares.invalid && shares.touched" class="form-text text-danger">shares is required</small>
+  </div>
+  <div class="form-group">
+      <label>View</label>
+      <input class="form-control" formControlName="views" type="text" value="" />
+      <small *ngIf="views.invalid && views.touched" class="form-text text-danger">views is required</small>
+  </div>
+  <div class="form-group">
+      <label>Imageur</label>
+      <input class="form-control" formControlName="imageurl" type="text" value="" />
+      <small *ngIf="imageurl.invalid && imageurl.touched" class="form-text text-danger">imageurl is required</small>
+  </div>
+  <div class="form-group">
+      <label>Datecreate</label><input class="form-control" formControlName="datecreated" type="text" value="" />
+  </div>
+  <div class="form-group">
+      <label>Datemodifie</label><input class="form-control" formControlName="datemodified" type="text" value="" />
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-sm">Add new Post</button>
+  <button type="reset" class="btn btn-danger btn-sm" (click)="onClickCreatePost()">Clear</button>
+
+</form>
+
+
+
+</div>
