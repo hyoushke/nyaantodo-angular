@@ -32,6 +32,12 @@
               </div>
           </div>
 
+          <div *ngIf="navigation=='TDO_REACTIVEFORM'" class="row">
+            <div class="col" >
+              <app-todo-reactiveform (todoReactiveFormEvent)="recieveTodoReactiveFormEvent($event)"></app-todo-reactiveform>
+            </div>
+        </div>
+
           <div *ngIf="navigation=='TDO_REPORTS'" class="row">
           </div>
 

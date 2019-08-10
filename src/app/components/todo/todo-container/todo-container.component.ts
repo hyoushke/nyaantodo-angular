@@ -49,6 +49,9 @@ export class TodoContainerComponent implements OnInit {
 
 
 
+  //handles child component events data sharing
+  //we can rename it all as
+  //onHandlesComponentEvent in the future..
   recieveNavigationEvent($event): void{
 
     this.isLoading = true;
@@ -79,6 +82,19 @@ export class TodoContainerComponent implements OnInit {
 
     this.navigation = 'TDO_LIST';
     this.getTodos();
+}
+
+recieveTodoReactiveFormEvent($event): void{
+  this.child = 'Todo Reactive Form';
+  this.navigation = $event.navigation;
+  this.counter = $event.counter;
+  this.message = $event.message;
+  this.toaster = 'Toasted Notification';
+
+  alert('New Todo Reactive Successfully Created');
+
+  this.navigation = 'TDO_LIST';
+  this.getTodos();
 }
 
 }
