@@ -34,6 +34,7 @@ import {routing} from './app-routing';
 import { LoginComponent } from './components/login/login/login.component';
 import { RegisterComponent } from './components/register/register/register.component';
 import { TodoReactiveformComponent } from './components/todo/todo-reactiveform/todo-reactiveform.component';
+import { TodoReactiveformv2Component } from './components/todo/todo-reactiveformv2/todo-reactiveformv2.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { TodoReactiveformComponent } from './components/todo/todo-reactiveform/t
     PostComponent,
     LoginComponent,
     RegisterComponent,
-    TodoReactiveformComponent
+    TodoReactiveformComponent,
+    TodoReactiveformv2Component
   ],
   imports: [
     BrowserModule,
