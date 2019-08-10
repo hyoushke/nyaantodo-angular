@@ -33,6 +33,7 @@ import { PostComponent } from './components/post/post/post.component';
 import {routing} from './app-routing';
 import { LoginComponent } from './components/login/login/login.component';
 import { RegisterComponent } from './components/register/register/register.component';
+import { TodoReactiveformComponent } from './components/todo/todo-reactiveform/todo-reactiveform.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { RegisterComponent } from './components/register/register/register.compo
     NotificationComponent,
     PostComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TodoReactiveformComponent
   ],
   imports: [
     BrowserModule,

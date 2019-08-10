@@ -5,6 +5,8 @@
       </ol>
   </nav>
 
-<div *ngFor="let todo of todos">
-<app-todo-item [todoitem]="todo"></app-todo-item>
-</div>
+  <div class="row">
+    <div *ngFor="let todo of todos" class="col-sm-3">
+      <app-todo-item [todoitem]="todo"></app-todo-item>
+    </div>
+  </div>
