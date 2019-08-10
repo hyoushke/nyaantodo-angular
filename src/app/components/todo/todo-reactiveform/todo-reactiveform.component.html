@@ -15,52 +15,52 @@
   <div class="form-group">
       <label>Author</label>
       <input class="form-control" formControlName="author" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="author.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>title</label>
       <input class="form-control" formControlName="title" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="title.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Content</label>
       <input class="form-control" formControlName="content" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="content.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Category</label>
       <input class="form-control" formControlName="categories" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="categories.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Tag</label>
       <input class="form-control" formControlName="tags" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="tags.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Like</label>
       <input class="form-control" formControlName="likes" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="likes.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Subscribe</label>
       <input class="form-control" formControlName="subscribers" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="subscribers.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Share</label>
       <input class="form-control" formControlName="shares" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="shares.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>View</label>
       <input class="form-control" formControlName="views" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="views.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Imageur</label>
       <input class="form-control" formControlName="imageurl" type="text" value="" />
-      <small class="small-text"></small>
+      <small *ngIf="imageurl.invalid" class="form-text text-danger"></small>
   </div>
   <div class="form-group">
       <label>Datecreate</label><input class="form-control" formControlName="datecreated" type="text" value="" />
