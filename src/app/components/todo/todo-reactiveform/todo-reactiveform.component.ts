@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodosService } from 'src/app/services/todos.service';
 import { IPost } from 'src/app/interface/IPost';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 
 
@@ -11,46 +12,42 @@ import { IPost } from 'src/app/interface/IPost';
 })
 export class TodoReactiveformComponent implements OnInit {
 
-  public author:string = "";
-  public title:string = "";
-  public content:string = "";
-  public categories:string = "";
-  public tags:string = "";
-  public likes:string = "";
-  public subscribers:string = "";
-  public shares:string = "";
-  public views:string = "";
-  public imageurl:string = "";
-  public datecreated:string = "";
-  public datemodified:string = "";
-
+  public formPosts: FormGroup;
   public post:IPost;
 
   @Output() todoReactiveFormEvent = new EventEmitter<any>();
 
-  constructor(private _todoService: TodosService) { }
+  constructor(private _todoService: TodosService, formBuilder: FormBuilder) {
+
+    this.formPosts = formBuilder.group({
+      author: null,
+      title: null,
+      content: null,
+      categories: null,
+      tags: null,
+      likes: null,
+      subscribers: null,
+      shares: null,
+      views: null,
+      imageurl: null,
+      datecreated: null,
+      datemodified: null
+    });
+
+    this.logFormPostValue();
+
+
+  }
 
   ngOnInit() {
   }
 
+  logFormPostValue(){
+    console.log(this.formPosts);
+  }
+
   addPost(){
     alert('hello world');
-
-
-    //console.log(this.post);
-
-    console.log( this.author );
-    console.log( this.title );
-    console.log( this.content );
-    console.log( this.categories );
-    console.log( this.tags );
-    console.log( this.likes );
-    console.log( this.subscribers );
-    console.log( this.shares );
-    console.log( this.views );
-    console.log( this.imageurl );
-    console.log( this.datecreated );
-    console.log( this.datemodified );
 
     let post = {
                 id: '1',
