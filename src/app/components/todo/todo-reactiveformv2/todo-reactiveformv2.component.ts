@@ -141,6 +141,8 @@ export class TodoReactiveformv2Component implements OnInit {
   }
 
 
+
+  // handlesFileImagePreview
   handlesFileChange(event){
 
     console.log(event);
@@ -152,19 +154,25 @@ export class TodoReactiveformv2Component implements OnInit {
       this.imageUrl = event.target.result;
     };
     this.fileImage = event.target.files[0];
-    fileReader.readAsDataURL(this.fileImage)
+    fileReader.readAsDataURL(this.fileImage);
 
 
   }
 
   handlesFileImageUpload() {
 
-    const apiUrl = 'http://localhost:8080/uploadimage';
+    const apiUrl = 'http://localhost:8080/posts/uploadimage';
     const apiFileFieldName = 'imageurl';
 
-    const formData = new FormData();
+    let formData = new FormData();
+
+    console.log(this.fileImage);
+    console.log(this.fileImage.name);
+
 
     formData.append(apiFileFieldName, this.fileImage, this.fileImage.name);
+
+    console.log(formData);
 
     this.http.post(apiUrl, formData, {
       reportProgress: true,
@@ -172,7 +180,7 @@ export class TodoReactiveformv2Component implements OnInit {
     })
     .subscribe( event => {
 
-      if (event.type === HttpEventType.UploadProgress ){
+      if (event.type === HttpEventType.UploadProgress ) {
         this.fileUploadProgress = 'Upload Progress' + Math.round( event.loaded / event.total ) * 100 + '%';
         console.log(this.fileUploadProgress);
       }
@@ -183,7 +191,7 @@ export class TodoReactiveformv2Component implements OnInit {
 
 
 
-     })
+     });
 
 
 
