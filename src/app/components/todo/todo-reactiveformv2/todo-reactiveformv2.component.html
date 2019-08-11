@@ -12,9 +12,43 @@
   </nav>
 
 <form [formGroup]="formPosts" (ngSubmit)="sendFormPosts()">
+
+
+
+    <div class="form-group">
+        <label>Preview</label>
+        <img [src]="imageUrl" style="width: 16rem;" (change)="handlesFileChange($event)">
+        <button type="button" (click)="fileupload.click()" >Pick an Image</button>
+    </div>
+
+
+
+    <div class="form-group">
+        <label>File</label>
+
+
+        <input #fileupload
+        style="display: none"
+        type="file"
+        class="form-control"
+        formControlName="fileupload"
+        accept="Image/*"
+        (change)="handlesFileChange($event)" />
+
+
+        <small *ngIf="title.invalid && title.touched" class="form-text text-danger">title is required</small>
+    </div>
+
+
+
   <div class="form-group">
       <label>Author</label>
       <input class="form-control" formControlName="author" type="text" value="" />
+      <select>
+        <option>
+          xxxxxxxxxxxxx
+        </option>
+      </select>
       <small *ngIf="author.invalid && author.touched" class="form-text text-danger">
           Author is required
       </small>

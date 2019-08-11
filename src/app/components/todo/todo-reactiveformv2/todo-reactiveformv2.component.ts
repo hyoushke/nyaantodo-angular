@@ -13,50 +13,57 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class TodoReactiveformv2Component implements OnInit {
 
   public formPosts: FormGroup;
-  public post:IPost;
+  public post: IPost;
+  //public selectedFile: File;
+
+  public imageUrl: string;
+  public fileImage: File;
 
   @Output() todoReactiveFormEvent = new EventEmitter<any>();
 
-  constructor(private _todoService: TodosService, private formBuilder: FormBuilder) {
+  constructor(private todoService: TodosService,
+              private formBuilder: FormBuilder) {
 
   }
 
   ngOnInit() {
     this.formPosts = this.formBuilder.group({
-      author: [null, [Validators.required]],
-      title: [null, [Validators.required]],
-      content: [null, [Validators.required]],
-      categories: [null, [Validators.required]],
-      tags: [null, [Validators.required]],
-      likes: [null, [Validators.required]],
-      subscribers: [null, [Validators.required]],
-      shares: [null, [Validators.required]],
-      views: [null, [Validators.required]],
-      imageurl: [null, [Validators.required]],
-      datecreated: [null, [Validators.required]],
-      datemodified: [null, [Validators.required]]
-    });
-
-    this.logFormPostValue();
-
+                                              fileupload: [null, [Validators.required]],
+                                              author: [null, [Validators.required]],
+                                              title: [null, [Validators.required]],
+                                              content: [null, [Validators.required]],
+                                              categories: [null, [Validators.required]],
+                                              tags: [null, [Validators.required]],
+                                              likes: [null, [Validators.required]],
+                                              subscribers: [null, [Validators.required]],
+                                              shares: [null, [Validators.required]],
+                                              views: [null, [Validators.required]],
+                                              imageurl: [null, [Validators.required]],
+                                              datecreated: [null, [Validators.required]],
+                                              datemodified: [null, [Validators.required]]   });
   }
 
-  logFormPostValue(){
-    console.log(this.formPosts);
-  }
 
   addPost() {
 
-   let post:IPost = this.formPosts.value as IPost;
-       post.id = '1';
-       post.authorid = '1';
-       post.status = 'Active';
+        const post: IPost = this.formPosts.value as IPost;
+        post.id = '1';
+        post.authorid = '1';
+        post.status = 'Active';
 
 
-    this._todoService.createPost(post).subscribe( res => {
 
-      console.log(res)
-      this._todoService.getTodos().subscribe(res => { console.log('******************'); console.log(res); console.log('******************'); });
+        this.todoService.createPost(post).subscribe( res => {
+
+            console.log(res);
+
+            this.todoService
+            .getTodos()
+            .subscribe(res => {
+              console.log('******************');
+              console.log(res);
+              console.log('******************'); });
+
     });
 
 
@@ -64,28 +71,20 @@ export class TodoReactiveformv2Component implements OnInit {
 
 }
 
+  // ngSubmit
+  sendFormPosts() {
+    const data = {
+                message: 'broadcast from todo form child [successfully created new todo]',
+                counter: 99,
+                navigation: 'TDO_REACTIVEFORM'};
 
-onClickCreatePost(){
-    let data = {
-                  message: "broadcast from todo form child [successfully created new todo]",
-                  counter: 44,
-                  navigation: 'TDO_REACTIVEFORM'
-               };
-
-              this.addPost();
-              this.todoReactiveFormEvent.emit(data);
-  }
-
-  //ngSubmit
-  sendFormPosts(){
-     console.log(this.formPosts.value);
-     this.onClickCreatePost();
-
+    this.addPost();
+    this.todoReactiveFormEvent.emit(data);
 
   }
 
 
-  //validation getters in UI
+  // validation getters in UI
   get author() {
     return this.formPosts.get('author') as FormControl;
   }
@@ -134,7 +133,26 @@ onClickCreatePost(){
     return this.formPosts.get('datemodified') as FormControl;
   }
 
+  get fileupload() {
+    return this.formPosts.get('fileupload') as FormControl;
+  }
 
+
+  handlesFileChange(event){
+
+    console.log(event);
+    console.log(event.target);
+
+    const fileReader = new FileReader();
+
+    fileReader.onload = (event: any)=>{
+      this.imageUrl = event.target.result;
+    };
+    this.fileImage = event.target.files[0];
+    fileReader.readAsDataURL(this.fileImage)
+
+
+  }
 
 
 }
