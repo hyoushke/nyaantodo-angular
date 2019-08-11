@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TodosService } from 'src/app/services/todos.service';
 import { IPost } from 'src/app/interface/IPost';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 
 
 
@@ -18,11 +19,13 @@ export class TodoReactiveformv2Component implements OnInit {
 
   public imageUrl: string;
   public fileImage: File;
+  public fileUploadProgress: string;
 
   @Output() todoReactiveFormEvent = new EventEmitter<any>();
 
   constructor(private todoService: TodosService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private http: HttpClient) {
 
   }
 
@@ -150,6 +153,39 @@ export class TodoReactiveformv2Component implements OnInit {
     };
     this.fileImage = event.target.files[0];
     fileReader.readAsDataURL(this.fileImage)
+
+
+  }
+
+  handlesFileImageUpload() {
+
+    const apiUrl = 'http://localhost:8080/uploadimage';
+    const apiFileFieldName = 'imageurl';
+
+    const formData = new FormData();
+
+    formData.append(apiFileFieldName, this.fileImage, this.fileImage.name);
+
+    this.http.post(apiUrl, formData, {
+      reportProgress: true,
+      observe: 'events'
+    })
+    .subscribe( event => {
+
+      if (event.type === HttpEventType.UploadProgress ){
+        this.fileUploadProgress = 'Upload Progress' + Math.round( event.loaded / event.total ) * 100 + '%';
+        console.log(this.fileUploadProgress);
+      }
+
+      if (event.type === HttpEventType.Response) {
+        console.log(event);
+      }
+
+
+
+     })
+
+
 
 
   }

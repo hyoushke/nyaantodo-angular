@@ -19,6 +19,8 @@
         <label>Preview</label>
         <img [src]="imageUrl" style="width: 16rem;" (change)="handlesFileChange($event)">
         <button type="button" (click)="fileupload.click()" >Pick an Image</button>
+        <button type="button" (click)="handlesFileImageUpload()" >Image Upload Now</button>{{ fileUploadProgress }}
+
     </div>
 
 
